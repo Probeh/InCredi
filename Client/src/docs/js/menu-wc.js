@@ -74,8 +74,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ProfileModule-72bab10f79dfb6e44b2a201825913661"' :
                                             'id="xs-components-links-module-ProfileModule-72bab10f79dfb6e44b2a201825913661"' }>
                                             <li class="link">
-                                                <a href="components/SearchComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">SearchComponent</a>
+                                                <a href="components/ProfileComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ProfileComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -95,8 +95,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SearchModule-063e9390f3c08aa976b3d8a778139adb"' :
                                             'id="xs-components-links-module-SearchModule-063e9390f3c08aa976b3d8a778139adb"' }>
                                             <li class="link">
-                                                <a href="components/SearchComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">SearchComponent</a>
+                                                <a href="components/ProfileComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ProfileComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -115,7 +115,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
                             <li class="link">
-                                <a href="components/ProfileComponent.html" data-type="entity-link">ProfileComponent</a>
+                                <a href="components/SearchComponent.html" data-type="entity-link">SearchComponent</a>
                             </li>
                         </ul>
                     </li>
