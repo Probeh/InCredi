@@ -1,1 +1,1 @@
-codedoc & snapshot & cd ../ & git add . & git commit -m "Project Update" & git push -u origin main & serve & exit
+codedoc & snapshot & cd ../ & git add . & git commit -m "Project Update" & git push -u origin main & ./scripts/serve & exit
