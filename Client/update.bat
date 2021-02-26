@@ -1,1 +1,1 @@
-codedoc & snapshot & github
+start codedoc & start snapshot & start github & exit
