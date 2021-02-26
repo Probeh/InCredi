@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header p-1 bg-info"></div>
+    <div class="card-body">
+      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">
+        <div class="form-group">
+          <label for="username">UserName</label>
+          <input
+            formControlName="userName"
+            type="text"
+            #username
+            name="userName"
+            placeholder="UserName"
+            id="userName"
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            #password
+            name="password"
+            placeholder="Password"
+            id="password"
+            class="form-control form-control-sm"
+          />
+        </div>
+        <button
+          class="btn btn-sm btn-outline-success"
+          [disabled]="this.loginForm.invalid"
+        >
+          <i class="fa fa-sign-in"></i> Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

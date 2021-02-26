@@ -14,6 +14,7 @@
     "target": "es2015",
     "lib": ["es2018", "dom"],
     "paths": {
+      "@account/*": ["src/app/account/*"],
       "@enums/*": ["src/common/enums/*"],
       "@helpers/*": ["src/common/helpers/*"],
       "@models/*": ["src/common/models/*"],

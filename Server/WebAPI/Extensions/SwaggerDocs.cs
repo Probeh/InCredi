@@ -7,7 +7,7 @@ namespace WebAPI.Extensions {
     public static IServiceCollection SetSwaggerDocs(this IServiceCollection services) {
       services.AddSwaggerGen(x => {
         var securityScheme = new OpenApiSecurityScheme() {
-        BearerFormat = "HmacSHA256",
+        BearerFormat = "HmacSHA512",
         In = ParameterLocation.Header,
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey

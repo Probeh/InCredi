@@ -169,12 +169,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(model?: <a href="../interfaces/IIdentity.html">IIdentity</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -192,38 +192,14 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>username</td>
+                                                        <td>model</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                        <code><a href="../interfaces/IIdentity.html" target="_self" >IIdentity</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>email</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>token</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
+                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -262,7 +238,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -807,13 +783,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Account } from &#x27;@models/account.model&#x27;
+export interface IIdentity {
+  token?: string;
+  userName?: string;
+  password?: string;
+  email?: string;
+}
 
 export class Identity extends Account {
   public token: string;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
-  constructor(username: string, email: string, token: string) {
-    super(username, null, email);
-    this.token &#x3D; token;
+  constructor(model?: IIdentity) {
+    super(model?.userName, model?.password, model?.email);
+    this.token &#x3D; model.token;
   }
 }</code></pre>
     </div>

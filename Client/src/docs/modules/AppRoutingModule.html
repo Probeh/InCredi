@@ -71,12 +71,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthGuard } from &#x27;@services/auth.guard&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;
 
 const routes: Routes &#x3D; [
-  { path: &#x27;search&#x27; , loadChildren: () &#x3D;&gt; &quot;import(&#x27;./search/search.module&#x27;  ).then(m &#x3D;&gt; m.SearchModule )&quot; },
-  { path: &#x27;profile&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./profile/profile.module&#x27;).then(m &#x3D;&gt; m.ProfileModule)&quot; },
+  { path: &#x27;account&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./account/account.module&#x27;).then(m &#x3D;&gt; m.AccountModule)&quot;                           },
+  { path: &#x27;profile&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./profile/profile.module&#x27;).then(m &#x3D;&gt; m.ProfileModule)&quot;, canActivate: [AuthGuard] },
+  { path: &#x27;search&#x27; , loadChildren: () &#x3D;&gt; &quot;import(&#x27;./search/search.module&#x27;  ).then(m &#x3D;&gt; m.SearchModule )&quot;, canActivate: [AuthGuard] },
   { path: &#x27;**&#x27;, pathMatch: &#x27;full&#x27;, redirectTo: &#x27;search&#x27; }
 ];
 

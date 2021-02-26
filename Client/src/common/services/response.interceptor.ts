@@ -2,18 +2,20 @@ import { Observable } from 'rxjs'
 import { tap } from 'rxjs/operators'
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { Identity } from '@models/identity.model'
+import { IdentityService } from '@services/identity.service'
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private identity: IdentityService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const started = Date.now();
     return next.handle(req).pipe(
       tap(event => {
         if (event instanceof HttpResponse) {
-          const elapsed = Date.now() - started;
-          console.log(`Request for ${req.urlWithParams} took ${elapsed} ms.`);
+          if (event.headers.has("authorization")) {
+            this.identity.setIdentity(new Identity({ token: event.headers.get("authorization").replace('Bearer ', '') }));
+          }
         }
       })
     );

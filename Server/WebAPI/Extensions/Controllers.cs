@@ -7,11 +7,9 @@ namespace WebAPI.Extensions {
       services
       .AddControllers()
       .AddNewtonsoftJson()
-      .AddJsonOptions(options => {
-        options.JsonSerializerOptions.AllowTrailingCommas = false;
-        options.JsonSerializerOptions.MaxDepth = 0;
-        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-        options.JsonSerializerOptions.WriteIndented = true;
-      }).Services;
+      .AddJsonOptions(x => x.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase)
+      .AddJsonOptions(x => x.JsonSerializerOptions.MaxDepth = 0)
+      .AddJsonOptions(x => x.JsonSerializerOptions.WriteIndented = true)
+      .Services;
   }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Context;
@@ -12,19 +13,18 @@ namespace WebAPI.Extensions {
         options.Password.RequireLowercase = false;
         options.Password.RequireNonAlphanumeric = false;
         options.Password.RequireUppercase = false;
-        options.Password.RequiredLength = 4;
         options.SignIn.RequireConfirmedAccount = false;
         options.SignIn.RequireConfirmedEmail = false;
         options.SignIn.RequireConfirmedPhoneNumber = false;
-        options.User.RequireUniqueEmail = true;
+        options.User.RequireUniqueEmail = false;
       })
       .AddRoles<Role>()
       .AddEntityFrameworkStores<ApplicationContext>()
       .AddRoleManager<RoleManager<Role>>()
       .AddRoleValidator<RoleValidator<Role>>()
-      .AddSignInManager<SignInManager<User>>()
       .AddUserManager<UserManager<User>>()
-      .AddUserValidator<UserValidator<User>>()
-      .Services;
+      .AddSignInManager<SignInManager<User>>()
+      .AddUserValidator<UserValidator<User>>().Services
+      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme).Services;
   }
 }

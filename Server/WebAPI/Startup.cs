@@ -13,9 +13,8 @@ namespace WebAPI {
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
       services
-        .SetDependencies()
-        .SetAuthentication(config)
         .SetEntityFramework(config)
+        .SetDependencies()
         .SetIdentity()
         .SetControllers()
         .SetSwaggerDocs()
@@ -27,11 +26,11 @@ namespace WebAPI {
       builder
         .UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin())
         .UseDeveloperExceptionPage()
-        .ScaffoldProfile()
-        .UseSwaggerDocs()
-        .UseAuthentication()
         .UseRouting()
+        .UseAuthentication()
         .UseAuthorization()
+        .UseSwaggerDocs()
+        .ScaffoldProfile()
         .UseEndpoints(endpoints => endpoints.MapControllers());
     }
   }

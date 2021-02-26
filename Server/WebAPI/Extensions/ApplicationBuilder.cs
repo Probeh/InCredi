@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Context;
 using Shared.Models;
@@ -25,13 +25,13 @@ namespace WebAPI.Extensions {
       return builder;
     }
     private static async void SetAccounts(UserManager<User> manager) {
-      if (!manager.Users.Any(user => user.UserName.Equals("admin"))) {
-        await manager.CreateAsync(new User() { UserName = "admin" }, password: "admin");
-      }
+      if (await manager.Users.AnyAsync())
+        return;
+      await manager.CreateAsync(new User { UserName = "admin" }, password: "password");
     }
     private static async void SetProfiles(ApplicationContext context) {
-      if (!context.Profiles.Any()) {
-        var profiles = new List<Profile> {
+      if (!(await context.Profiles.AnyAsync())) {
+        new List<Profile> {
           new Profile(831, "jeryL", 28, "jery", DateTime.Parse("2018-05-23 00:00:00.000"), "Suplier", "cash", 1450.00d),
           new Profile(281, "natanX", 28, "natan", DateTime.Parse("2019-09-21 00:00:00.000"), "Suplier", "other", 1470.00d),
           new Profile(282, "natanF", 28, "natan", DateTime.Parse("2019-10-16 00:00:00.000"), "Suplier", "other", -1520.00d),
@@ -131,10 +131,10 @@ namespace WebAPI.Extensions {
           new Profile(1252, "lotemP", 132, "lotem", DateTime.Parse("2016-08-21 00:00:00.000"), "Costumer", "cash", -15.00d),
           new Profile(1252, "lotemP", 132, "lotem", DateTime.Parse("2016-09-10 00:00:00.000"), "Costumer", "cash", -224.00d),
           new Profile(1252, "lotemP", 132, "lotem", DateTime.Parse("2016-11-19 00:00:00.000"), "Costumer", "cash", 2000.00d)
-        };
-        profiles.ForEach(async x => await context.AddAsync(x));
+        }.ForEach(async x => await context.AddAsync(x));
         await context.SaveChangesAsync();
       }
+      return;
     }
   }
 }

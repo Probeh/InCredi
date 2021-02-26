@@ -244,7 +244,9 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     const headers &#x3D; req.headers
-      .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+      .append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+      .append(&quot;Authorization&quot;, &#x60;Bearer ${this.identity.identity.token}&#x60;);
+
     const authReq &#x3D; req.clone({ headers });
     return next.handle(authReq);
   }

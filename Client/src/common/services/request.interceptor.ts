@@ -9,7 +9,9 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const headers = req.headers
-      .set('Content-Type', 'application/json');
+      .append('Content-Type', 'application/json')
+      .append("Authorization", `Bearer ${this.identity.identity.token}`);
+
     const authReq = req.clone({ headers });
     return next.handle(authReq);
   }

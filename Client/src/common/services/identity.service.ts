@@ -5,20 +5,30 @@ import { Account        } from '@models/account.model'
 import { Identity       } from '@models/identity.model'
 import { MessageService } from '@services/message.service'
 import { MessageType    } from '@enums/message.enum'
+import { Router         } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class IdentityService {
-  private readonly baseUrl: string = 'http://localhost:5000';
+  private readonly baseUrl: string = 'http://localhost:5000/api';
   // ======================================= //
   public authState: boolean = false;
   public identity: Identity;
   public identity$: Subject<Identity> = new Subject<Identity>();
   // ======================================= //
-  constructor(private message: MessageService, private http: HttpClient) {
+  constructor(private message: MessageService, private http: HttpClient, private router: Router) {
     this.identity$.subscribe({
-      next: result => this.identity = result
+      next: result => {
+        this.identity = result;
+        this.router.navigate(['search']);
+        console.log('AuthState Changed =>', result);
+      }
     });
-    this.checkIdentity();
+
+    const storage: Identity = JSON.parse(localStorage.getItem('identity')) as Identity;
+    this.authState = storage != null;
+    if (storage && !this.identity) {
+      this.identity$.next(storage);
+    }
   }
   // ======================================= //
   public userLogin(account: Account): Promise<Object> {
@@ -26,10 +36,10 @@ export class IdentityService {
       .post(`${this.baseUrl}/auth`, account)
       .toPromise()
       .then((result) => {
-        this.message.show('Success!', `Welcome ${this.identity.userName}`, MessageType.Success);
+        this.identity.userName = account.userName;
+        this.message.show('Success!', `Welcome ${account.userName}`, MessageType.Success);
         return result;
-      })
-      .catch((error) => { this.message.show('Login Failure!', 'Please try again', MessageType.Error); throw error });
+      });
   }
   public userRegister(account: Account): Promise<Object> {
     return this.http
@@ -38,20 +48,14 @@ export class IdentityService {
       .then((result) => {
         this.message.show('Success!', `Account successfully created`, MessageType.Success)
         return result;
-      })
-      .catch((error) => { this.message.show('Registration Failed!', '', MessageType.Error); throw error });
+      });
   }
   public userLogout(): Promise<void> {
-    return Promise.resolve()
-      .then(() => this.message.show('Signing Out', `Goodbye ${this.identity.userName}`, MessageType.Info))
+    return this.http
+      .post(`${this.baseUrl}/auth/logout`, null)
+      .toPromise()
+      .then(() => this.message.show('Signing Out', '', MessageType.Info))
       .then(() => this.setIdentity());
-  }
-  public async checkIdentity() {
-    const storage: Identity = JSON.parse(localStorage.getItem('identity')) as Identity;
-    this.authState = storage != null;
-    if (storage && !this.identity) {
-      this.identity$.next(storage);
-    }
   }
   public setIdentity(identity?: Identity) {
     identity

@@ -97,15 +97,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(identity: <a href="../injectables/IdentityService.html">IdentityService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/response.interceptor.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/response.interceptor.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>identity</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IdentityService.html" target="_self" >IdentityService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -137,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/response.interceptor.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/response.interceptor.ts:12</a></div>
                 </td>
             </tr>
 
@@ -207,18 +237,20 @@
 import { tap } from &#x27;rxjs/operators&#x27;
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from &#x27;@angular/common/http&#x27;
 import { Injectable } from &#x27;@angular/core&#x27;
+import { Identity } from &#x27;@models/identity.model&#x27;
+import { IdentityService } from &#x27;@services/identity.service&#x27;
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor(private identity: IdentityService) { }
 
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-    const started &#x3D; Date.now();
     return next.handle(req).pipe(
       tap(event &#x3D;&gt; {
         if (event instanceof HttpResponse) {
-          const elapsed &#x3D; Date.now() - started;
-          console.log(&#x60;Request for ${req.urlWithParams} took ${elapsed} ms.&#x60;);
+          if (event.headers.has(&quot;authorization&quot;)) {
+            this.identity.setIdentity(new Identity({ token: event.headers.get(&quot;authorization&quot;).replace(&#x27;Bearer &#x27;, &#x27;&#x27;) }));
+          }
         }
       })
     );
