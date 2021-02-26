@@ -1,17 +1,20 @@
 <div class="container">
-  <div class="card">
-    <div class="card-header p-1 bg-info"></div>
+  <div class="card shadow">
+    <div class="card-header bg-info"></div>
+    <div class="jumbotron shadow bg-info" style="border-radius: 0px">
+      <h1 class="display-3 text-white"><i class="fa fa-user-o" style="margin-right: 20px;"></i>User Login</h1>
+    </div>
     <div class="card-body">
       <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">
         <div class="form-group">
-          <label for="username">UserName</label>
+          <label for="username">Username</label>
           <input
-            formControlName="userName"
+            formControlName="username"
             type="text"
             #username
-            name="userName"
-            placeholder="UserName"
-            id="userName"
+            name="username"
+            placeholder="Username"
+            id="username"
             class="form-control form-control-sm"
           />
         </div>
@@ -28,7 +31,7 @@
           />
         </div>
         <button
-          class="btn btn-sm btn-outline-success"
+          class="btn btn-sm btn-block btn-outline-success"
           [disabled]="this.loginForm.invalid"
         >
           <i class="fa fa-sign-in"></i> Login

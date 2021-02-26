@@ -1,13 +1,13 @@
 import { ModelBase } from '@models/base.model'
 
 export class Account extends ModelBase<Account> {
-  public userName: string;
+  public username: string;
   public password: string;
   public email   : string;
   // ======================================= //
-  constructor(userName?: string, password?: string, email?: string) {
+  constructor(username?: string, password?: string, email?: string) {
     super();
-    this.userName = userName ?? userName;
+    this.username = username ?? username;
     this.password = password ?? password;
     this.email    = email    ?? email   ;
   }

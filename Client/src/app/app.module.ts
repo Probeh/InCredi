@@ -5,12 +5,16 @@ import { BrowserModule                             } from '@angular/platform-bro
 import { BrowserAnimationsModule                   } from '@angular/platform-browser/animations'
 import { AppRoutingModule                          } from '@client/app-routing.module'
 import { AppComponent                              } from '@client/app.component'
+import { HeaderComponent                           } from '@client/header/header.component'
 import { AuthGuard                                 } from '@services/auth.guard'
 import { RequestInterceptor                        } from '@services/request.interceptor'
 import { ResponseInterceptor                       } from '@services/response.interceptor'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
