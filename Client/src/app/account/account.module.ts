@@ -5,6 +5,7 @@ import { LoginComponent       } from '@account/login/login.component'
 import { NgModule             } from '@angular/core'
 import { RegisterComponent    } from '@account/register/register.component'
 import { ReactiveFormsModule } from '@angular/forms'
+import {InputTextModule} from 'primeng/inputtext';
 
 const components = [AccountComponent, LoginComponent, RegisterComponent];
 
