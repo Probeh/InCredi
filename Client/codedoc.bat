@@ -1,1 +1,1 @@
-compodoc -p tsconfig.json -d src/docs -n InCredi ./ --hideGenerator --theme readthedocs
+compodoc -p tsconfig.json -d src/docs -n InCredi ./ --hideGenerator --theme readthedocs & github && exit
