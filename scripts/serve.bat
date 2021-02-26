@@ -1,1 +1,1 @@
-start cd ./Client && ng serve -o
+start cd ./Client & ng serve -o
