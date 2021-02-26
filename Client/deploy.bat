@@ -1,1 +1,1 @@
-ng build --prod & firebase deploy & start chrome https://incredi-client.web.app/ & exit
+start update && ng build --prod & firebase deploy & start chrome https://incredi-client.web.app/ & exit
