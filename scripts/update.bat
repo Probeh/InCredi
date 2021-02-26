@@ -1,1 +1,1 @@
-codedoc & snapshot & cd ../ & git add . & git commit -m "Project Update" & git push -u origin main & exit
+codedoc & snapshot & cd ../ & git add . & git commit -m "Project Update" & git push -u origin main & cd./Client & ng serve -o & exit
