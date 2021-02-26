@@ -1,0 +1,1 @@
+cd ./WebAPI/ & dotnet clean & dotnet ef migrations add Initialize & dotnet ef database update & dotnet watch run
