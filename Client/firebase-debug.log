@@ -1,0 +1,13 @@
+[debug] [2021-02-26T21:52:50.431Z] ----------------------------------------------------------------------
+[debug] [2021-02-26T21:52:50.433Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Probe\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-02-26T21:52:50.433Z] CLI Version:   9.1.0
+[debug] [2021-02-26T21:52:50.433Z] Platform:      win32
+[debug] [2021-02-26T21:52:50.433Z] Node Version:  v14.15.1
+[debug] [2021-02-26T21:52:50.434Z] Time:          Fri Feb 26 2021 23:52:50 GMT+0200 (Israel Standard Time)
+[debug] [2021-02-26T21:52:50.434Z] ----------------------------------------------------------------------
+[debug] [2021-02-26T21:52:50.435Z] 
+[debug] [2021-02-26T21:52:50.440Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-02-26T21:52:50.440Z] > authorizing via signed-in user
+[debug] [2021-02-26T21:52:50.440Z] [iam] checking project incredi-client for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-02-26T21:52:50.442Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/incredi-client:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

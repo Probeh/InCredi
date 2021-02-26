@@ -8,10 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "codedoc": "start .\\scripts\\codedoc",
-    "deploy": "start .\\scripts\\deploy",
-    "snapshot": "start .\\scripts\\snapshot",
-    "update": "start .\\scripts\\update"
+    "codedoc": "start codedoc",
+    "deploy": "start deploy",
+    "snapshot": "start snapshot",
+    "update": "start update"
   },
   "private": true,
   "dependencies": {
