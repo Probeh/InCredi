@@ -1,1 +1,1 @@
-start codedoc & snapshot & github & serve
+codedoc & snapshot & github & serve
