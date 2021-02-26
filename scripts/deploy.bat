@@ -1,0 +1,1 @@
+cd ../Client & ng build --prod & firebase deploy
