@@ -24,13 +24,13 @@
 <title>cluster_SearchModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 613,-268 613,-70 8,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SearchModule_imports</title>
-<polygon fill="none" stroke="black" points="447,-78 447,-130 605,-130 605,-78 447,-78"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_SearchModule_exports</title>
 <polygon fill="none" stroke="black" points="83,-208 83,-260 517,-260 517,-208 83,-208"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SearchModule_imports</title>
+<polygon fill="none" stroke="black" points="447,-78 447,-130 605,-130 605,-78 447,-78"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SearchModule_declarations</title>

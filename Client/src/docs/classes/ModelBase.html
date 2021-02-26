@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts</code>
+            <code>src/common/models/base.model.ts</code>
         </p>
 
 
@@ -128,7 +128,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/common/models/base.model.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -192,7 +192,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/common/models/base.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -220,7 +220,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/common/models/base.model.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -248,7 +248,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/common/models/base.model.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -276,7 +276,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/common/models/base.model.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -304,7 +304,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/common/models/base.model.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -332,7 +332,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/common/models/base.model.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -352,20 +352,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IModelBase {
-  id         ?: number ;
-  name       ?: string ;
-  description?: string ;
-  isActive   ?: boolean;
-  isDefault  ?: boolean;
+  description ?: string ;
+  id          ?: number ;
+  isActive    ?: boolean;
+  isDefault   ?: boolean;
+  name        ?: string ;
 }
 export class ModelBase&lt;T extends ModelBase&lt;T&gt;&gt; {
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
-  public id         : number ;
-  public created    : number ;
-  public description: string ;
-  public isActive   : boolean;
-  public isDefault  : boolean;
-  public name       : string ;
+  public created     : number ;
+  public description : string ;
+  public id          : number ;
+  public isActive    : boolean;
+  public isDefault   : boolean;
+  public name        : string ;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
   constructor(args?: IModelBase) {
     args ?? Object.keys(this)

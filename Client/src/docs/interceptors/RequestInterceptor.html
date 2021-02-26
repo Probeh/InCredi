@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/request.interceptor.ts</code>
+            <code>src/common/services/request.interceptor.ts</code>
         </p>
 
 
@@ -102,7 +102,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/request.interceptor.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/common/services/request.interceptor.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -168,7 +168,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/services/request.interceptor.ts:10</a></div>
+                            class="link-to-prism">src/common/services/request.interceptor.ts:10</a></div>
                 </td>
             </tr>
 
@@ -243,9 +243,12 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private identity: IdentityService) { }
 
   intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-    const headers &#x3D; req.headers
-      .append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
-      .append(&quot;Authorization&quot;, &#x60;Bearer ${this.identity.identity.token}&#x60;);
+
+    const headers &#x3D; this.identity.authState ?
+      req.headers
+        .append(&quot;Authorization&quot;, &#x60;Bearer ${this.identity.identity.token}&#x60;)
+        .append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;) :
+      req.headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
 
     const authReq &#x3D; req.clone({ headers });
     return next.handle(authReq);

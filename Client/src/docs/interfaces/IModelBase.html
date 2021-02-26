@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/base.model.ts</code>
+            <code>src/common/models/base.model.ts</code>
         </p>
 
 
@@ -286,20 +286,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IModelBase {
-  id         ?: number ;
-  name       ?: string ;
-  description?: string ;
-  isActive   ?: boolean;
-  isDefault  ?: boolean;
+  description ?: string ;
+  id          ?: number ;
+  isActive    ?: boolean;
+  isDefault   ?: boolean;
+  name        ?: string ;
 }
 export class ModelBase&lt;T extends ModelBase&lt;T&gt;&gt; {
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
-  public id         : number ;
-  public created    : number ;
-  public description: string ;
-  public isActive   : boolean;
-  public isDefault  : boolean;
-  public name       : string ;
+  public created     : number ;
+  public description : string ;
+  public id          : number ;
+  public isActive    : boolean;
+  public isDefault   : boolean;
+  public name        : string ;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
   constructor(args?: IModelBase) {
     args ?? Object.keys(this)

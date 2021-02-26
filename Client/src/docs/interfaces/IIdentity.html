@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts</code>
+            <code>src/common/models/identity.model.ts</code>
         </p>
 
 
@@ -93,7 +93,7 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#userName">userName</a>
+                                        <a href="#username">username</a>
                                 </li>
                             </ul>
                         </td>
@@ -212,13 +212,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="userName"></a>
-                                        <span class="name"><b>userName</b><a href="#userName"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="username"></a>
+                                        <span class="name"><b>username</b><a href="#username"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>userName:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>username:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -250,7 +250,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Account } from &#x27;@models/account.model&#x27;
 export interface IIdentity {
   token?: string;
-  userName?: string;
+  username?: string;
   password?: string;
   email?: string;
 }
@@ -259,7 +259,7 @@ export class Identity extends Account {
   public token: string;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
   constructor(model?: IIdentity) {
-    super(model?.userName, model?.password, model?.email);
+    super(model?.username, model?.password, model?.email);
     this.token &#x3D; model.token;
   }
 }</code></pre>

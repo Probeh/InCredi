@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts</code>
+    <code>src/app/account/login/login.component.ts</code>
 </p>
 
 
@@ -157,6 +157,10 @@
                                     <span class="modifier">Public</span>
                                 <a href="#onSubmit">onSubmit</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userLogout">userLogout</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -180,7 +184,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/account/login/login.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -264,7 +268,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts:16</a></div>
+                            class="link-to-prism">src/app/account/login/login.component.ts:16</a></div>
                 </td>
             </tr>
 
@@ -303,7 +307,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts:15</a></div>
+                            class="link-to-prism">src/app/account/login/login.component.ts:15</a></div>
                 </td>
             </tr>
 
@@ -344,7 +348,48 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts:22</a></div>
+                            class="link-to-prism">src/app/account/login/login.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userLogout"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            userLogout
+                        </b>
+                        <a href="#userLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>userLogout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/account/login/login.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -392,7 +437,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/account/login/login.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/account/login/login.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -422,14 +467,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
   public generateForm() {
     return new FormGroup({
-      &#x27;userName&#x27;: new FormControl(&#x27;&#x27;, Validators.required),
+      &#x27;username&#x27;: new FormControl(&#x27;&#x27;, Validators.required),
       &#x27;password&#x27;: new FormControl(&#x27;&#x27;, Validators.required)
     });
   }
   public onSubmit() {
     this.identity
-      .userLogin(new Account(this.loginForm.value[&#x27;userName&#x27;], this.loginForm.value[&#x27;password&#x27;]))
-      .catch(error &#x3D;&gt; this.generateForm());
+      .userLogin(new Account(this.loginForm.value[&#x27;username&#x27;], this.loginForm.value[&#x27;password&#x27;]))
+      .catch(error &#x3D;&gt; this.loginForm &#x3D; this.generateForm());
+  }
+  public userLogout() {
+    this.identity.userLogout()
+      .then(result &#x3D;&gt; {
+        this.loginForm &#x3D; this.generateForm();
+        this.router.navigate([&#x27;account&#x27;]);
+      });
   }
 }
 </code></pre>
@@ -437,19 +489,22 @@ export class LoginComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div class&#x3D;&quot;card&quot;&gt;
-    &lt;div class&#x3D;&quot;card-header p-1 bg-info&quot;&gt;&lt;/div&gt;
+  &lt;div class&#x3D;&quot;card shadow&quot;&gt;
+    &lt;div class&#x3D;&quot;card-header bg-info&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;jumbotron shadow bg-info&quot; style&#x3D;&quot;border-radius: 0px&quot;&gt;
+      &lt;h1 class&#x3D;&quot;display-3 text-white&quot;&gt;&lt;i class&#x3D;&quot;fa fa-user-o&quot; style&#x3D;&quot;margin-right: 20px;&quot;&gt;&lt;/i&gt;User Login&lt;/h1&gt;
+    &lt;/div&gt;
     &lt;div class&#x3D;&quot;card-body&quot;&gt;
       &lt;form (ngSubmit)&#x3D;&quot;this.onSubmit()&quot; [formGroup]&#x3D;&quot;this.loginForm&quot;&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;username&quot;&gt;UserName&lt;/label&gt;
+          &lt;label for&#x3D;&quot;username&quot;&gt;Username&lt;/label&gt;
           &lt;input
-            formControlName&#x3D;&quot;userName&quot;
+            formControlName&#x3D;&quot;username&quot;
             type&#x3D;&quot;text&quot;
             #username
-            name&#x3D;&quot;userName&quot;
-            placeholder&#x3D;&quot;UserName&quot;
-            id&#x3D;&quot;userName&quot;
+            name&#x3D;&quot;username&quot;
+            placeholder&#x3D;&quot;Username&quot;
+            id&#x3D;&quot;username&quot;
             class&#x3D;&quot;form-control form-control-sm&quot;
           /&gt;
         &lt;/div&gt;
@@ -466,7 +521,7 @@ export class LoginComponent implements OnInit {
           /&gt;
         &lt;/div&gt;
         &lt;button
-          class&#x3D;&quot;btn btn-sm btn-outline-success&quot;
+          class&#x3D;&quot;btn btn-sm btn-block btn-outline-success&quot;
           [disabled]&#x3D;&quot;this.loginForm.invalid&quot;
         &gt;
           &lt;i class&#x3D;&quot;fa fa-sign-in&quot;&gt;&lt;/i&gt; Login
@@ -510,8 +565,8 @@ export class LoginComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card">    <div class="card-header p-1 bg-info"></div>    <div class="card-body">      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">        <div class="form-group">          <label for="username">UserName</label>          <input            formControlName="userName"            type="text"            #username            name="userName"            placeholder="UserName"            id="userName"            class="form-control form-control-sm"          />        </div>        <div class="form-group">          <label for="password">Password</label>          <input            formControlName="password"            type="password"            #password            name="password"            placeholder="Password"            id="password"            class="form-control form-control-sm"          />        </div>        <button          class="btn btn-sm btn-outline-success"          [disabled]="this.loginForm.invalid"        >          <i class="fa fa-sign-in"></i> Login        </button>      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card shadow">    <div class="card-header bg-info"></div>    <div class="jumbotron shadow bg-info" style="border-radius: 0px">      <h1 class="display-3 text-white"><i class="fa fa-user-o" style="margin-right: 20px;"></i>User Login</h1>    </div>    <div class="card-body">      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">        <div class="form-group">          <label for="username">Username</label>          <input            formControlName="username"            type="text"            #username            name="username"            placeholder="Username"            id="username"            class="form-control form-control-sm"          />        </div>        <div class="form-group">          <label for="password">Password</label>          <input            formControlName="password"            type="password"            #password            name="password"            placeholder="Password"            id="password"            class="form-control form-control-sm"          />        </div>        <button          class="btn btn-sm btn-block btn-outline-success"          [disabled]="this.loginForm.invalid"        >          <i class="fa fa-sign-in"></i> Login        </button>      </form>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

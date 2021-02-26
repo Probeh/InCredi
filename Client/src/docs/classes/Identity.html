@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts</code>
+            <code>src/common/models/identity.model.ts</code>
         </p>
 
 
@@ -100,7 +100,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#userName">userName</a>
+                                <a href="#username">username</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -174,7 +174,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/common/models/identity.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/common/models/identity.model.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/common/models/identity.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -319,12 +319,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="userName"></a>
+                        <a name="username"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            userName</b>
-                            <a href="#userName"><span class="icon ion-ios-link"></span></a>
+                            username</b>
+                            <a href="#username"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -377,7 +377,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:11</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:10</a></code>
 </div>
                             </td>
                         </tr>
@@ -412,7 +412,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:12</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:11</a></code>
 </div>
                             </td>
                         </tr>
@@ -447,7 +447,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:10</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/Account.html#source" target="_self" >Account:12</a></code>
 </div>
                             </td>
                         </tr>
@@ -587,7 +587,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:11</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:10</a></code>
 </div>
                             </td>
                         </tr>
@@ -622,7 +622,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:12</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:11</a></code>
 </div>
                             </td>
                         </tr>
@@ -657,7 +657,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:10</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/ModelBase.html#source" target="_self" >ModelBase:12</a></code>
 </div>
                             </td>
                         </tr>
@@ -785,7 +785,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Account } from &#x27;@models/account.model&#x27;
 export interface IIdentity {
   token?: string;
-  userName?: string;
+  username?: string;
   password?: string;
   email?: string;
 }
@@ -794,7 +794,7 @@ export class Identity extends Account {
   public token: string;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
   constructor(model?: IIdentity) {
-    super(model?.userName, model?.password, model?.email);
+    super(model?.username, model?.password, model?.email);
     this.token &#x3D; model.token;
   }
 }</code></pre>

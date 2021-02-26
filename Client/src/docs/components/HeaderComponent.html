@@ -36,7 +36,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>RegisterComponent</li>
+  <li>HeaderComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/account/register/register.component.ts</code>
+    <code>src/app/header/header.component.ts</code>
 </p>
 
 
@@ -92,19 +92,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-register</code></td>
+                <td class="col-md-9"><code>app-header</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./register.component.scss</code></td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./register.component.html</code></td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
             </tr>
 
 
@@ -157,7 +157,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/account/register/register.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/header/header.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -197,7 +197,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/account/register/register.component.ts:10</a></div>
+                            class="link-to-prism">src/app/header/header.component.ts:10</a></div>
                 </td>
             </tr>
 
@@ -222,11 +222,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
 @Component({
-  selector: &#x27;app-register&#x27;,
-  templateUrl: &#x27;./register.component.html&#x27;,
-  styleUrls: [&#x27;./register.component.scss&#x27;]
+  selector: &#x27;app-header&#x27;,
+  templateUrl: &#x27;./header.component.html&#x27;,
+  styleUrls: [&#x27;./header.component.scss&#x27;]
 })
-export class RegisterComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   constructor() { }
   ngOnInit() { }
 }
@@ -234,15 +234,52 @@ export class RegisterComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  register works!
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-sm navbar-dark bg-info&quot;&gt;
+  &lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;#&quot;&gt;&lt;i class&#x3D;&quot;fa fa-credit-card&quot;&gt;&lt;/i&gt; InCredi&lt;/a&gt;
+  &lt;button
+    class&#x3D;&quot;navbar-toggler d-lg-none&quot;
+    type&#x3D;&quot;button&quot;
+    data-toggle&#x3D;&quot;collapse&quot;
+    data-target&#x3D;&quot;#collapsibleNavId&quot;
+    aria-controls&#x3D;&quot;collapsibleNavId&quot;
+    aria-expanded&#x3D;&quot;false&quot;
+    aria-label&#x3D;&quot;Toggle navigation&quot;
+  &gt;&lt;/button&gt;
+  &lt;div class&#x3D;&quot;collapse navbar-collapse&quot; id&#x3D;&quot;collapsibleNavId&quot;&gt;
+    &lt;ul class&#x3D;&quot;navbar-nav mr-auto mt-2 mt-lg-0&quot;&gt;
+      &lt;li routerLinkActive&#x3D;&quot;active&quot;&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;search&quot;
+          &gt;&lt;i class&#x3D;&quot;fa fa-search mr-1&quot;&gt;&lt;/i&gt;Search&lt;/a
+        &gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; target&#x3D;&quot;_blank&quot; href&#x3D;&quot;../../docs/index.html&quot;
+          &gt;&lt;i class&#x3D;&quot;fa fa-code mr-1&quot;&gt;&lt;/i&gt;Docs&lt;/a
+        &gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a
+          class&#x3D;&quot;nav-link&quot;
+          target&#x3D;&quot;_blank&quot;
+          href&#x3D;&quot;https://github.com/Probeh/InCredi&quot;
+          &gt;&lt;i class&#x3D;&quot;fa fa-github mr-1&quot;&gt;&lt;/i&gt;Repo&lt;/a
+        &gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;form class&#x3D;&quot;form-inline my-2 my-lg-0&quot;&gt;
+      &lt;input class&#x3D;&quot;form-control mr-sm-2&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Search&quot; /&gt;
+      &lt;button class&#x3D;&quot;btn btn-outline-success my-2 my-sm-0&quot; type&#x3D;&quot;submit&quot;&gt;
+        Search
+      &lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./register.component.scss</code>
+                    <code>./header.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
@@ -272,10 +309,10 @@ export class RegisterComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  register works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-sm navbar-dark bg-info">  <a class="navbar-brand" href="#"><i class="fa fa-credit-card"></i> InCredi</a>  <button    class="navbar-toggler d-lg-none"    type="button"    data-toggle="collapse"    data-target="#collapsibleNavId"    aria-controls="collapsibleNavId"    aria-expanded="false"    aria-label="Toggle navigation"  ></button>  <div class="collapse navbar-collapse" id="collapsibleNavId">    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">      <li routerLinkActive="active">        <a class="nav-link" routerLink="search"          ><i class="fa fa-search mr-1"></i>Search</a        >      </li>      <li>        <a class="nav-link" target="_blank" href="../../docs/index.html"          ><i class="fa fa-code mr-1"></i>Docs</a        >      </li>      <li>        <a          class="nav-link"          target="_blank"          href="https://github.com/Probeh/InCredi"          ><i class="fa fa-github mr-1"></i>Repo</a        >      </li>    </ul>    <form class="form-inline my-2 my-lg-0">      <input class="form-control mr-sm-2" type="text" placeholder="Search" />      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">        Search      </button>    </form>  </div></nav></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -310,7 +347,7 @@ export class RegisterComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'RegisterComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

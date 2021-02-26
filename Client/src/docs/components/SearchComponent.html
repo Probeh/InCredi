@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>C:/Users/Probe/Documents/Development/Assignment/Client/src/app/search/search.component.ts</code>
+    <code>src/app/search/search.component.ts</code>
 </p>
 
 
@@ -122,6 +122,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#entries">entries</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -152,15 +167,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(network: <a href="../injectables/NetworkService.html">NetworkService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/search/search.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/search/search.component.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>network</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NetworkService.html" target="_self" >NetworkService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -196,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">C:/Users/Probe/Documents/Development/Assignment/Client/src/app/search/search.component.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/search/search.component.ts:13</a></div>
                 </td>
             </tr>
 
@@ -214,12 +259,48 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entries"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            entries</b>
+                            <a href="#entries"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Profile.html" target="_self" >Profile[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/search/search.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Profile } from &#x27;@models/profile.model&#x27;;
+import { NetworkService } from &#x27;@services/network.service&#x27;;
 
 @Component({
   selector: &#x27;app-search&#x27;,
@@ -227,8 +308,9 @@
   styleUrls: [&#x27;./search.component.scss&#x27;]
 })
 export class SearchComponent implements OnInit {
-  constructor() { }
-  ngOnInit() { }
+  public entries: Profile[];
+  constructor(private network: NetworkService) { }
+  ngOnInit() { this.network.getData&lt;Profile[]&gt;(&#x27;profiles&#x27;).then(result &#x3D;&gt; this.entries &#x3D; result); }
 }
 </code></pre>
     </div>
@@ -273,7 +355,7 @@ export class SearchComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>  search works!</p></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchComponent'};
 </script>
