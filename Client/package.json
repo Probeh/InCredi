@@ -7,11 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "docs": "start .\\scripts\\codedoc",
-    "docs:live": "start .\\scripts\\codedoc-live",
-    "save": "start .\\scripts\\snapshot",
-    "deploy": "start .\\scripts\\snapshot"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
