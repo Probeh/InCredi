@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../../node_modules/primeng/resources/themes/mdc-light-indigo/theme.css";
 // ======================================= //
-// Global Font Variables:
+// Global Style Variables:
 // ======================================= //
 $primary: #3f51b5;
 // ======================================= //
 html,
 body {
-  overflow-y: hidden;
-  overflow-x: hidden;
-  padding: 0;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0;
 }
 // ======================================= //
 h1,
