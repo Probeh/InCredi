@@ -1,11 +1,12 @@
 import { Account } from '@models/account.model'
 export interface IIdentity {
-  token?: string;
-  username?: string;
+  // ======================================= //
+  email   ?: string;
   password?: string;
-  email?: string;
+  token   ?: string;
+  username?: string;
+  // ======================================= //
 }
-
 export class Identity extends Account {
   public token: string;
   // ======================================= //

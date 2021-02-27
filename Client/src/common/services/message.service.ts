@@ -1,6 +1,6 @@
 import { ToastrService } from 'ngx-toastr'
-import { Injectable    } from '@angular/core'
-import { MessageType   } from '@enums/message.enum'
+import { Injectable } from '@angular/core'
+import { MessageType } from '@enums/message.enum'
 
 @Injectable({ providedIn: 'root' })
 export class MessageService {

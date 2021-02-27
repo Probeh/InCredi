@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Profile } from '@models/profile.model';
-import { Results } from '@models/results.model';
-import { NetworkService } from '@services/network.service';
+import { Component     , OnInit } from '@angular/core'
+import { Profile                } from '@models/profile.model'
+import { Results                } from '@models/results.model'
+import { NetworkService         } from '@services/network.service'
 
 @Component({
   selector: 'app-search',

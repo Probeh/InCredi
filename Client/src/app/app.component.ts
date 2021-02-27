@@ -1,6 +1,6 @@
-import { PrimeNGConfig } from 'primeng/api'
-import { Component } from '@angular/core'
+import { Component             } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
+import { PrimeNGConfig         } from 'primeng/api'
 
 @Component({
   selector: 'app-root',

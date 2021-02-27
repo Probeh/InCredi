@@ -1,11 +1,11 @@
 import { Subject        } from 'rxjs'
 import { HttpClient     } from '@angular/common/http'
 import { Injectable     } from '@angular/core'
+import { Router         } from '@angular/router'
+import { MessageType    } from '@enums/message.enum'
 import { Account        } from '@models/account.model'
 import { Identity       } from '@models/identity.model'
 import { MessageService } from '@services/message.service'
-import { MessageType    } from '@enums/message.enum'
-import { Router         } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class IdentityService {

@@ -1,9 +1,11 @@
 export interface IModelBase {
+  // ======================================= //
   description ?: string ;
   id          ?: number ;
   isActive    ?: boolean;
   isDefault   ?: boolean;
   name        ?: string ;
+  // ======================================= //
 }
 export class ModelBase<T extends ModelBase<T>> {
   // ======================================= //

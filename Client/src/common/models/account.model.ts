@@ -1,6 +1,7 @@
 import { ModelBase } from '@models/base.model'
 
 export class Account extends ModelBase<Account> {
+  // ======================================= //
   public username: string;
   public password: string;
   public email   : string;
