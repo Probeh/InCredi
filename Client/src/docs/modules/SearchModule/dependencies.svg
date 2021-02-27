@@ -28,13 +28,13 @@
 <title>cluster_SearchModule_declarations</title>
 <polygon fill="none" stroke="black" points="182,-78 182,-130 605,-130 605,-78 182,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SearchModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 174,-130 174,-78 16,-78"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_SearchModule_exports</title>
 <polygon fill="none" stroke="black" points="104,-208 104,-260 538,-260 538,-208 104,-208"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SearchModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 174,-130 174,-78 16,-78"/>
 </g>
 <!-- AccountComponent -->
 <g id="node1" class="node">
