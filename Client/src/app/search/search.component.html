@@ -1,3 +1,92 @@
-<p>
-  search works!
-</p>
+<p-table [value]="this.profiles" dataKey="id">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th pSortableColumn="name">
+        Name <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="parentName">
+        Parent <p-sortIcon field="parentName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="parentId">
+        ParentId <p-sortIcon field="parentId"></p-sortIcon>
+      </th>
+      <th pSortableColumn="date">
+        Date <p-sortIcon field="date"></p-sortIcon>
+      </th>
+      <th pSortableColumn="type">
+        Type <p-sortIcon field="type"></p-sortIcon>
+      </th>
+      <th pSortableColumn="details">
+        Details <p-sortIcon field="details"></p-sortIcon>
+      </th>
+      <th pSortableColumn="sum">Total <p-sortIcon field="sum"></p-sortIcon></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-profile let-expanded="expanded">
+    <tr>
+      <td>
+        <button
+          [pRowToggler]="profile"
+          class="btn btn-sm btn-outline-info p-0"
+          (click)="this.getTotals(profile.parentId)"
+          style="
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+          "
+        >
+          <i class="{{ expanded ? 'fa fa-minus' : 'fa fa-plus' }}"></i>
+        </button>
+      </td>
+      <td>{{ profile.name | titlecase }}</td>
+      <td>{{ profile.parentName | titlecase }}</td>
+      <td>{{ profile.parentId }}</td>
+      <td>{{ profile.date | date: "dd/MM/YYYY" }}</td>
+      <td>{{ profile.type }}</td>
+      <td>{{ profile.details | titlecase }}</td>
+      <td>{{ profile.sum | currency: "USD" }}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-profile>
+    <tr>
+      <td colspan="8">
+        <div class="p-p-3">
+          <div class="bg-primary p-4 m-3 shadow" style="border-radius: 10px;">
+            <h4><i class="fa fa-user-o mr-3"></i> {{profile.parentName | titlecase}}</h4>
+          </div>
+          <p-table [value]="profile.totals?.totals" dataKey="id">
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="id">
+                  Id <p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="year">
+                  Year <p-sortIcon field="year"></p-sortIcon>
+                </th>
+                <th pSortableColumn="total">
+                  Total <p-sortIcon field="total"></p-sortIcon>
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-total>
+              <tr>
+                <td>{{ total?.id }}</td>
+                <td>{{ total?.year }}</td>
+                <td>{{ total?.total | currency: "USD" }}</td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="6">There are no items to display</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

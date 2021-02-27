@@ -1,4 +1,6 @@
-<p>
-  account works!
-</p>
-<router-outlet></router-outlet>
+<div class="container">
+  <p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu>
+  <div class="mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,2 +1,11 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="content">
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="subheader shadow bg-primary-light">
+    {{ this.route | titlecase }}
+  </div>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -23,6 +23,7 @@
       "@services/*": ["src/common/services/*"],
       "@common/*": ["src/common/*"],
       "@client/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"],
     }
   },
   "angularCompilerOptions": {

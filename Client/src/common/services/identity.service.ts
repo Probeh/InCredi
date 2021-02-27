@@ -1,15 +1,15 @@
-import { Subject } from 'rxjs'
-import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
-import { Account } from '@models/account.model'
-import { Identity } from '@models/identity.model'
+import { Subject        } from 'rxjs'
+import { HttpClient     } from '@angular/common/http'
+import { Injectable     } from '@angular/core'
+import { Account        } from '@models/account.model'
+import { Identity       } from '@models/identity.model'
 import { MessageService } from '@services/message.service'
-import { MessageType } from '@enums/message.enum'
-import { Router } from '@angular/router'
+import { MessageType    } from '@enums/message.enum'
+import { Router         } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class IdentityService {
-  private readonly baseUrl: string = 'http://localhost:5000/api/auth';
+  private readonly baseUrl: string = 'auth';
   // ======================================= //
   public authState: boolean = false;
   public identity: Identity;
@@ -19,8 +19,7 @@ export class IdentityService {
     this.identity$.subscribe({
       next: result => {
         this.identity = result;
-        this.router.navigate(['search']);
-        console.log('AuthState Changed =>', result);
+        this.router.navigate([result ? 'search' : 'account']);
       }
     });
 
@@ -54,12 +53,13 @@ export class IdentityService {
         return result;
       });
   }
-  public userLogout(): Promise<void> {
-    return this.http
+  public userLogout(): Promise<Object> {
+    var result = this.http
       .post(`${this.baseUrl}/logout`, null)
-      .toPromise()
-      .then(() => this.message.show('Signing Out', '', MessageType.Info))
-      .then(() => this.setIdentity());
+      .toPromise();
+    this.setIdentity();
+    this.message.show('Signed out!', '', MessageType.Warning);
+    return result;
   }
   public setIdentity(identity?: Identity) {
     identity

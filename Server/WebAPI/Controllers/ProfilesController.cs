@@ -16,14 +16,18 @@ namespace WebAPI.Controllers {
       return Ok(await this.repo.SearchModels());
     }
 
-    [HttpGet("Deductables")]
+    [HttpGet("deductables")]
     public async Task<IActionResult> GetDeductables() {
       return Ok(await this.repo.GetDeductables());
     }
 
-    [HttpGet("{parentId}")]
+    [HttpGet("{parentId}/totals")]
+    public IActionResult GetModels([FromRoute] int parentId) {
+      return Ok(this.repo.GetTotals(parentId));
+    }
+    [HttpGet("{parentId}/balance")]
     public IActionResult GetModels([FromRoute] int parentId, [FromQuery] int balance) {
-      return Ok(this.repo.SearchModels(parentId, (BalanceType) balance));
+      return Ok(this.repo.GetTotals(parentId, (BalanceType) balance));
     }
 
     [HttpDelete("{id}")]

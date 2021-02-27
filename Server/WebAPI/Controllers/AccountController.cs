@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Shared.Models;
 
 namespace WebAPI.Controllers {
-	[ApiController, Route("api/auth")]
+	[ApiController, Route("api/auth"), Authorize]
 	public class AccountController : ControllerBase {
 		private readonly IConfiguration configuration;
 		private readonly SignInManager<User> signInManager;
@@ -33,10 +33,9 @@ namespace WebAPI.Controllers {
 			return Ok();
 		}
 
-		[HttpPost("logout"), Authorize]
-		public async Task<IActionResult> UserLogout() {
-			await this.signInManager.SignOutAsync();
-			return Ok();
+		[HttpPost("logout"), AllowAnonymous]
+		public IActionResult UserLogout() {
+			return Accepted();
 		}
 	}
 }

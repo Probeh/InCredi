@@ -8,6 +8,7 @@ namespace WebAPI.Extensions {
   public static partial class Extension {
     public static IServiceCollection SetIdentity(this IServiceCollection services) =>
       services
+      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme).Services
       .AddDefaultIdentity<User>(options => {
         options.Password.RequireDigit = false;
         options.Password.RequireLowercase = false;
@@ -24,7 +25,6 @@ namespace WebAPI.Extensions {
       .AddRoleValidator<RoleValidator<Role>>()
       .AddUserManager<UserManager<User>>()
       .AddSignInManager<SignInManager<User>>()
-      .AddUserValidator<UserValidator<User>>().Services
-      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme).Services;
+      .Services;
   }
 }

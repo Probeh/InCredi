@@ -16,8 +16,6 @@ namespace Shared.Services {
       await this.context.Profiles.FirstAsync(x => x.Id == id);
     public async Task<ICollection<Profile>> SearchModels() =>
       await this.context.Profiles.ToListAsync();
-    public Result SearchModels(int id, BalanceType balance) =>
-      this.GetTotals(id, balance);
     public async Task<List<Summary>> GetDeductables(int parentId = 0) {
       return await this.context.Profiles
         .Where(x => parentId > 0 ? x.ParentId == parentId : x != null)
@@ -28,7 +26,22 @@ namespace Shared.Services {
         }).ToListAsync();
     }
 
-    private Result GetTotals(int parentId, BalanceType balance) {
+    public Result GetTotals(int parentId) {
+      var entries = this.context.Profiles
+        .Where(x => x.ParentId == parentId);
+
+      return new Result() {
+        ParentId = parentId,
+          Name = entries.First().ParentName,
+          Totals = entries
+          .Select(x => x.Date.Year)
+          .Distinct()
+          .Select(year => new Summary() { Year = year, Id = parentId, Total = entries.Where(x => x.Date.Year == year).Sum(x => x.Sum) })
+          .OrderByDescending(x => x.Total)
+          .OrderBy(x => x.Year).ToList()
+      };
+    }
+    public Result GetTotals(int parentId, BalanceType balance) {
       var entries = this.context.Profiles
         .Where(x => x.ParentId == parentId)
         .Where(x => balance == BalanceType.Positive ? x.Sum > 0 : x.Sum < 0);
@@ -39,7 +52,7 @@ namespace Shared.Services {
           Totals = entries
           .Select(x => x.Date.Year)
           .Distinct()
-          .Select(year => new Summary() { Year = year, Total = entries.Where(x => x.Date.Year == year).Sum(x => x.Sum) })
+          .Select(year => new Summary() { Year = year, Id = parentId, Total = entries.Where(x => x.Date.Year == year).Sum(x => x.Sum) })
           .OrderByDescending(x => x.Total)
           .OrderBy(x => x.Year).ToList()
       };

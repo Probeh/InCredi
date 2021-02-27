@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IdentityService } from '@services/identity.service';
+import { server } from '@env/environment';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -15,7 +16,7 @@ export class RequestInterceptor implements HttpInterceptor {
         .append('Content-Type', 'application/json') :
       req.headers.append('Content-Type', 'application/json');
 
-    const authReq = req.clone({ headers });
+    const authReq = req.clone({ headers, url: server + '/' + req.url });
     return next.handle(authReq);
   }
 }

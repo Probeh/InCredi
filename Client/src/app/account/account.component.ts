@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-account',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
+  public items: MenuItem[];
   constructor() { }
-  ngOnInit() { }
+  ngOnInit() {
+    this.items = [
+      { label: 'Login'   , icon: 'fa fa-user'     , routerLink: 'login' },
+      { label: 'Register', icon: 'fa fa-user-plus', routerLink: 'register' },
+    ];
+  }
 }

@@ -203,27 +203,27 @@
                                         <tbody>
                                                 <tr>
                                                         <td>identity</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="../injectables/IdentityService.html" target="_self" >IdentityService</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -239,7 +239,7 @@
 
 
     <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -407,7 +407,7 @@
     </table>
 </section>
     <section>
-    
+
         <h3 id="inputs">
             Properties
         </h3>
@@ -490,9 +490,11 @@ export class LoginComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
   &lt;div class&#x3D;&quot;card shadow&quot;&gt;
-    &lt;div class&#x3D;&quot;card-header bg-info&quot;&gt;&lt;/div&gt;
-    &lt;div class&#x3D;&quot;jumbotron shadow bg-info&quot; style&#x3D;&quot;border-radius: 0px&quot;&gt;
-      &lt;h1 class&#x3D;&quot;display-3 text-white&quot;&gt;&lt;i class&#x3D;&quot;fa fa-user-o&quot; style&#x3D;&quot;margin-right: 20px;&quot;&gt;&lt;/i&gt;User Login&lt;/h1&gt;
+    &lt;div class&#x3D;&quot;card-header bg-primary&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;jumbotron shadow bg-primary&quot; style&#x3D;&quot;border-radius: 0px&quot;&gt;
+      &lt;h1 class&#x3D;&quot;display-3 text-white&quot;&gt;
+        &lt;i class&#x3D;&quot;fa fa-user-o&quot; style&#x3D;&quot;margin-right: 20px&quot;&gt;&lt;/i&gt;User Login
+      &lt;/h1&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;card-body&quot;&gt;
       &lt;form (ngSubmit)&#x3D;&quot;this.onSubmit()&quot; [formGroup]&#x3D;&quot;this.loginForm&quot;&gt;
@@ -506,6 +508,7 @@ export class LoginComponent implements OnInit {
             placeholder&#x3D;&quot;Username&quot;
             id&#x3D;&quot;username&quot;
             class&#x3D;&quot;form-control form-control-sm&quot;
+            pInputText
           /&gt;
         &lt;/div&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
@@ -518,6 +521,7 @@ export class LoginComponent implements OnInit {
             placeholder&#x3D;&quot;Password&quot;
             id&#x3D;&quot;password&quot;
             class&#x3D;&quot;form-control form-control-sm&quot;
+            pInputText
           /&gt;
         &lt;/div&gt;
         &lt;button
@@ -558,14 +562,14 @@ export class LoginComponent implements OnInit {
         </div>
     </div>
 
-    
+
 </div>
 
 <script src="../js/libs/vis.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card shadow">    <div class="card-header bg-info"></div>    <div class="jumbotron shadow bg-info" style="border-radius: 0px">      <h1 class="display-3 text-white"><i class="fa fa-user-o" style="margin-right: 20px;"></i>User Login</h1>    </div>    <div class="card-body">      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">        <div class="form-group">          <label for="username">Username</label>          <input            formControlName="username"            type="text"            #username            name="username"            placeholder="Username"            id="username"            class="form-control form-control-sm"          />        </div>        <div class="form-group">          <label for="password">Password</label>          <input            formControlName="password"            type="password"            #password            name="password"            placeholder="Password"            id="password"            class="form-control form-control-sm"          />        </div>        <button          class="btn btn-sm btn-block btn-outline-success"          [disabled]="this.loginForm.invalid"        >          <i class="fa fa-sign-in"></i> Login        </button>      </form>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card shadow">    <div class="card-header bg-primary"></div>    <div class="jumbotron shadow bg-primary" style="border-radius: 0px">      <h1 class="display-3 text-white">        <i class="fa fa-user-o" style="margin-right: 20px"></i>User Login      </h1>    </div>    <div class="card-body">      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">        <div class="form-group">          <label for="username">Username</label>          <input            formControlName="username"            type="text"            #username            name="username"            placeholder="Username"            id="username"            class="form-control form-control-sm"            pInputText          />        </div>        <div class="form-group">          <label for="password">Password</label>          <input            formControlName="password"            type="password"            #password            name="password"            placeholder="Password"            id="password"            class="form-control form-control-sm"            pInputText          />        </div>        <button          class="btn btn-sm btn-block btn-outline-success"          [disabled]="this.loginForm.invalid"        >          <i class="fa fa-sign-in"></i> Login        </button>      </form>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
@@ -581,7 +585,7 @@ export class LoginComponent implements OnInit {
 
 
 
-                   
+
 
 
 
