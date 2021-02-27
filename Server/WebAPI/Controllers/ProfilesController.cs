@@ -25,6 +25,7 @@ namespace WebAPI.Controllers {
     public IActionResult GetModels([FromRoute] int parentId) {
       return Ok(this.repo.GetTotals(parentId));
     }
+
     [HttpGet("{parentId}/balance")]
     public IActionResult GetModels([FromRoute] int parentId, [FromQuery] int balance) {
       return Ok(this.repo.GetTotals(parentId, (BalanceType) balance));

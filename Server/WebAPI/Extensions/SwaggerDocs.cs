@@ -8,9 +8,9 @@ namespace WebAPI.Extensions {
       services.AddSwaggerGen(x => {
         var securityScheme = new OpenApiSecurityScheme() {
         BearerFormat = "HmacSHA512",
-        In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
+        In           = ParameterLocation.Header,
+        Name         = "Authorization",
+        Type         = SecuritySchemeType.ApiKey
         };
         x.AddSecurityDefinition("Bearer Token", securityScheme);
         x.AddSecurityRequirement(new OpenApiSecurityRequirement());

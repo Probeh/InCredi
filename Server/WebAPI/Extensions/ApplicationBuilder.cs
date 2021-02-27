@@ -134,7 +134,6 @@ namespace WebAPI.Extensions {
         }.ForEach(async x => await context.AddAsync(x));
         await context.SaveChangesAsync();
       }
-      return;
     }
   }
 }
