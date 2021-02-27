@@ -382,8 +382,8 @@ export class HeaderComponent implements OnInit {
     width: 100%;
   &quot;
 &gt;
-  &lt;h4 class&#x3D;&quot;title m-0&quot;&gt;&lt;i class&#x3D;&quot;fa fa-credit-card mr-2&quot;&gt;&lt;/i&gt;InCredi&lt;/h4&gt;
-  &lt;div class&#x3D;&quot;action-group&quot;&gt;
+  &lt;h4 class&#x3D;&quot;title m-0&quot; style&#x3D;&quot;flex: auto;&quot;&gt;&lt;i class&#x3D;&quot;fa fa-credit-card mr-2&quot;&gt;&lt;/i&gt;InCredi&lt;/h4&gt;
+  &lt;div class&#x3D;&quot;action-group&quot; style&#x3D;&quot;display: flex;&quot;&gt;
     &lt;a href&#x3D;&quot;../../docs/overview.html&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;btn&quot;
       &gt;&lt;i class&#x3D;&quot;fa fa-code&quot;&gt;&lt;/i&gt;&lt;span&gt;Docs&lt;/span&gt;&lt;/a
     &gt;
@@ -429,9 +429,12 @@ export class HeaderComponent implements OnInit {
 }
 @media screen and (max-width: 500px) {
   .btn {
+    align-items: center;
     background: lighten($color: $primary, $amount: 10%);
     border-radius: 50%;
+    display: flex;
     height: 35px;
+    justify-content: center;
     margin-left: 10px;
     padding: 0px;
     width: 35px;
@@ -468,7 +471,7 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div  class="header bg-primary"  style="    align-items: center;    color: white;    display: flex;    height: 50px;    justify-content: space-between;    padding: 0px 15px;    width: 100%;  ">  <h4 class="title m-0"><i class="fa fa-credit-card mr-2"></i>InCredi</h4>  <div class="action-group">    <a href="../../docs/overview.html" target="_blank" class="btn"      ><i class="fa fa-code"></i><span>Docs</span></a    >    <a href="https://github.com/probeh/incredi" target="_blank" class="btn"      ><i class="fa fa-github"></i><span>GitHub</span></a    >    <button *ngIf="this.authenticated" class="btn" (click)="this.logout()">      <i class="fa fa-sign-out"></i><span>Logout</span>    </button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div  class="header bg-primary"  style="    align-items: center;    color: white;    display: flex;    height: 50px;    justify-content: space-between;    padding: 0px 15px;    width: 100%;  ">  <h4 class="title m-0" style="flex: auto;"><i class="fa fa-credit-card mr-2"></i>InCredi</h4>  <div class="action-group" style="display: flex;">    <a href="../../docs/overview.html" target="_blank" class="btn"      ><i class="fa fa-code"></i><span>Docs</span></a    >    <a href="https://github.com/probeh/incredi" target="_blank" class="btn"      ><i class="fa fa-github"></i><span>GitHub</span></a    >    <button *ngIf="this.authenticated" class="btn" (click)="this.logout()">      <i class="fa fa-sign-out"></i><span>Logout</span>    </button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
