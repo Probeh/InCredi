@@ -203,27 +203,27 @@
                                         <tbody>
                                                 <tr>
                                                         <td>identity</td>
-
+                                                  
                                                         <td>
                                                                         <code><a href="../injectables/IdentityService.html" target="_self" >IdentityService</a></code>
                                                         </td>
-
+                                                  
                                                     <td>
                                                             No
                                                     </td>
-
+                                                    
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
-
+                                                  
                                                         <td>
                                                                         <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
-
+                                                  
                                                     <td>
                                                             No
                                                     </td>
-
+                                                    
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -239,7 +239,7 @@
 
 
     <section>
-
+    
     <h3 id="methods">
         Methods
     </h3>
@@ -407,7 +407,7 @@
     </table>
 </section>
     <section>
-
+    
         <h3 id="inputs">
             Properties
         </h3>
@@ -488,52 +488,42 @@ export class LoginComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div class&#x3D;&quot;card shadow&quot;&gt;
-    &lt;div class&#x3D;&quot;card-header bg-primary&quot;&gt;&lt;/div&gt;
-    &lt;div class&#x3D;&quot;jumbotron shadow bg-primary&quot; style&#x3D;&quot;border-radius: 0px&quot;&gt;
-      &lt;h1 class&#x3D;&quot;display-3 text-white&quot;&gt;
-        &lt;i class&#x3D;&quot;fa fa-user-o&quot; style&#x3D;&quot;margin-right: 20px&quot;&gt;&lt;/i&gt;User Login
-      &lt;/h1&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;card-body&quot;&gt;
-      &lt;form (ngSubmit)&#x3D;&quot;this.onSubmit()&quot; [formGroup]&#x3D;&quot;this.loginForm&quot;&gt;
-        &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;username&quot;&gt;Username&lt;/label&gt;
-          &lt;input
-            formControlName&#x3D;&quot;username&quot;
-            type&#x3D;&quot;text&quot;
-            #username
-            name&#x3D;&quot;username&quot;
-            placeholder&#x3D;&quot;Username&quot;
-            id&#x3D;&quot;username&quot;
-            class&#x3D;&quot;form-control form-control-sm&quot;
-            pInputText
-          /&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;password&quot;&gt;Password&lt;/label&gt;
-          &lt;input
-            formControlName&#x3D;&quot;password&quot;
-            type&#x3D;&quot;password&quot;
-            #password
-            name&#x3D;&quot;password&quot;
-            placeholder&#x3D;&quot;Password&quot;
-            id&#x3D;&quot;password&quot;
-            class&#x3D;&quot;form-control form-control-sm&quot;
-            pInputText
-          /&gt;
-        &lt;/div&gt;
-        &lt;button
-          class&#x3D;&quot;btn btn-sm btn-block btn-outline-success&quot;
-          [disabled]&#x3D;&quot;this.loginForm.invalid&quot;
-        &gt;
-          &lt;i class&#x3D;&quot;fa fa-sign-in&quot;&gt;&lt;/i&gt; Login
-        &lt;/button&gt;
-      &lt;/form&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;form (ngSubmit)&#x3D;&quot;this.onSubmit()&quot; [formGroup]&#x3D;&quot;this.loginForm&quot;&gt;
+  &lt;div class&#x3D;&quot;form-group&quot;&gt;
+    &lt;div class&#x3D;&quot;p-float-label p-input-icon-left&quot;&gt;
+      &lt;input
+        #username
+        autocomplete&#x3D;&quot;off&quot;
+        formControlName&#x3D;&quot;username&quot;
+        id&#x3D;&quot;username&quot;
+        pInputText
+        type&#x3D;&quot;text&quot;
+      /&gt;
+      &lt;i class&#x3D;&quot;fa fa-user&quot;&gt;&lt;/i&gt;
+      &lt;label for&#x3D;&quot;username&quot;&gt;Username&lt;/label&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
+  &lt;div class&#x3D;&quot;form-group&quot;&gt;
+    &lt;div class&#x3D;&quot;p-float-label p-input-icon-left&quot;&gt;
+      &lt;input
+        #password
+        autocomplete&#x3D;&quot;off&quot;
+        formControlName&#x3D;&quot;password&quot;
+        id&#x3D;&quot;password&quot;
+        pInputText
+        type&#x3D;&quot;password&quot;
+      /&gt;
+      &lt;i class&#x3D;&quot;fa fa-lock&quot;&gt;&lt;/i&gt;
+      &lt;label for&#x3D;&quot;password&quot;&gt;Password&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button
+    class&#x3D;&quot;btn btn-lg btn-outline-info&quot;
+    [disabled]&#x3D;&quot;this.loginForm.invalid&quot;
+  &gt;
+    &lt;i class&#x3D;&quot;fa fa-sign-in&quot;&gt;&lt;/i&gt; Login
+  &lt;/button&gt;
+&lt;/form&gt;
 </code></pre>
     </div>
 
@@ -562,14 +552,14 @@ export class LoginComponent implements OnInit {
         </div>
     </div>
 
-
+    
 </div>
 
 <script src="../js/libs/vis.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card shadow">    <div class="card-header bg-primary"></div>    <div class="jumbotron shadow bg-primary" style="border-radius: 0px">      <h1 class="display-3 text-white">        <i class="fa fa-user-o" style="margin-right: 20px"></i>User Login      </h1>    </div>    <div class="card-body">      <form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">        <div class="form-group">          <label for="username">Username</label>          <input            formControlName="username"            type="text"            #username            name="username"            placeholder="Username"            id="username"            class="form-control form-control-sm"            pInputText          />        </div>        <div class="form-group">          <label for="password">Password</label>          <input            formControlName="password"            type="password"            #password            name="password"            placeholder="Password"            id="password"            class="form-control form-control-sm"            pInputText          />        </div>        <button          class="btn btn-sm btn-block btn-outline-success"          [disabled]="this.loginForm.invalid"        >          <i class="fa fa-sign-in"></i> Login        </button>      </form>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><form (ngSubmit)="this.onSubmit()" [formGroup]="this.loginForm">  <div class="form-group">    <div class="p-float-label p-input-icon-left">      <input        #username        autocomplete="off"        formControlName="username"        id="username"        pInputText        type="text"      />      <i class="fa fa-user"></i>      <label for="username">Username</label>    </div>  </div>  <div class="form-group">    <div class="p-float-label p-input-icon-left">      <input        #password        autocomplete="off"        formControlName="password"        id="password"        pInputText        type="password"      />      <i class="fa fa-lock"></i>      <label for="password">Password</label>    </div>  </div>  <button    class="btn btn-lg btn-outline-info"    [disabled]="this.loginForm.invalid"  >    <i class="fa fa-sign-in"></i> Login  </button></form></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
@@ -585,7 +575,7 @@ export class LoginComponent implements OnInit {
 
 
 
-
+                   
 
 
 

@@ -132,7 +132,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#entries">entries</a>
+                                <a href="#profiles">profiles</a>
                             </li>
                         </ul>
                     </td>
@@ -146,6 +146,10 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTotals">getTotals</a>
+                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -172,7 +176,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/search/search.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/search/search.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -223,6 +227,78 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getTotals"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getTotals
+                        </b>
+                        <a href="#getTotals"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTotals(parentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/search/search.component.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
@@ -241,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/search/search.component.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/search/search.component.ts:14</a></div>
                 </td>
             </tr>
 
@@ -268,12 +344,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="entries"></a>
+                        <a name="profiles"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            entries</b>
-                            <a href="#entries"><span class="icon ion-ios-link"></span></a>
+                            profiles</b>
+                            <a href="#profiles"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -285,7 +361,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/search/search.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/search/search.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -300,6 +376,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Profile } from &#x27;@models/profile.model&#x27;;
+import { Results } from &#x27;@models/results.model&#x27;;
 import { NetworkService } from &#x27;@services/network.service&#x27;;
 
 @Component({
@@ -308,17 +385,110 @@ import { NetworkService } from &#x27;@services/network.service&#x27;;
   styleUrls: [&#x27;./search.component.scss&#x27;]
 })
 export class SearchComponent implements OnInit {
-  public entries: Profile[];
+  public profiles: Profile[];
   constructor(private network: NetworkService) { }
-  ngOnInit() { this.network.getData&lt;Profile[]&gt;(&#x27;profiles&#x27;).then(result &#x3D;&gt; this.entries &#x3D; result); }
+  ngOnInit() { this.network.getData&lt;Profile[]&gt;(&#x27;profiles&#x27;).then(result &#x3D;&gt; this.profiles &#x3D; result); }
+  public getTotals(parentId: number) {
+    this.network.getData&lt;Results&gt;(&#x60;profiles/${parentId}/totals&#x60;)
+      .then(result &#x3D;&gt; this.profiles.forEach(x &#x3D;&gt; x.totals &#x3D; x.parentId &#x3D;&#x3D; parentId ? result : x.totals));
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  search works!
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;p-table [value]&#x3D;&quot;this.profiles&quot; dataKey&#x3D;&quot;id&quot;&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+    &lt;tr&gt;
+      &lt;th style&#x3D;&quot;width: 3rem&quot;&gt;&lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;name&quot;&gt;
+        Name &lt;p-sortIcon field&#x3D;&quot;name&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;parentName&quot;&gt;
+        Parent &lt;p-sortIcon field&#x3D;&quot;parentName&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;parentId&quot;&gt;
+        ParentId &lt;p-sortIcon field&#x3D;&quot;parentId&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;date&quot;&gt;
+        Date &lt;p-sortIcon field&#x3D;&quot;date&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;type&quot;&gt;
+        Type &lt;p-sortIcon field&#x3D;&quot;type&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;details&quot;&gt;
+        Details &lt;p-sortIcon field&#x3D;&quot;details&quot;&gt;&lt;/p-sortIcon&gt;
+      &lt;/th&gt;
+      &lt;th pSortableColumn&#x3D;&quot;sum&quot;&gt;Total &lt;p-sortIcon field&#x3D;&quot;sum&quot;&gt;&lt;/p-sortIcon&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-profile let-expanded&#x3D;&quot;expanded&quot;&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;button
+          [pRowToggler]&#x3D;&quot;profile&quot;
+          class&#x3D;&quot;btn btn-sm btn-outline-info p-0&quot;
+          (click)&#x3D;&quot;this.getTotals(profile.parentId)&quot;
+          style&#x3D;&quot;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+          &quot;
+        &gt;
+          &lt;i class&#x3D;&quot;{{ expanded ? &#x27;fa fa-minus&#x27; : &#x27;fa fa-plus&#x27; }}&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+      &lt;td&gt;{{ profile.name | titlecase }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.parentName | titlecase }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.parentId }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.date | date: &quot;dd/MM/YYYY&quot; }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.type }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.details | titlecase }}&lt;/td&gt;
+      &lt;td&gt;{{ profile.sum | currency: &quot;USD&quot; }}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+  &lt;ng-template pTemplate&#x3D;&quot;rowexpansion&quot; let-profile&gt;
+    &lt;tr&gt;
+      &lt;td colspan&#x3D;&quot;8&quot;&gt;
+        &lt;div class&#x3D;&quot;p-p-3&quot;&gt;
+          &lt;div class&#x3D;&quot;bg-primary p-4 m-3 shadow&quot; style&#x3D;&quot;border-radius: 10px;&quot;&gt;
+            &lt;h4&gt;&lt;i class&#x3D;&quot;fa fa-user-o mr-3&quot;&gt;&lt;/i&gt; {{profile.parentName | titlecase}}&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;p-table [value]&#x3D;&quot;profile.totals?.totals&quot; dataKey&#x3D;&quot;id&quot;&gt;
+            &lt;ng-template pTemplate&#x3D;&quot;header&quot;&gt;
+              &lt;tr&gt;
+                &lt;th pSortableColumn&#x3D;&quot;id&quot;&gt;
+                  Id &lt;p-sortIcon field&#x3D;&quot;id&quot;&gt;&lt;/p-sortIcon&gt;
+                &lt;/th&gt;
+                &lt;th pSortableColumn&#x3D;&quot;year&quot;&gt;
+                  Year &lt;p-sortIcon field&#x3D;&quot;year&quot;&gt;&lt;/p-sortIcon&gt;
+                &lt;/th&gt;
+                &lt;th pSortableColumn&#x3D;&quot;total&quot;&gt;
+                  Total &lt;p-sortIcon field&#x3D;&quot;total&quot;&gt;&lt;/p-sortIcon&gt;
+                &lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/ng-template&gt;
+            &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-total&gt;
+              &lt;tr&gt;
+                &lt;td&gt;{{ total?.id }}&lt;/td&gt;
+                &lt;td&gt;{{ total?.year }}&lt;/td&gt;
+                &lt;td&gt;{{ total?.total | currency: &quot;USD&quot; }}&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/ng-template&gt;
+            &lt;ng-template pTemplate&#x3D;&quot;emptymessage&quot;&gt;
+              &lt;tr&gt;
+                &lt;td colspan&#x3D;&quot;6&quot;&gt;There are no items to display&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/ng-template&gt;
+          &lt;/p-table&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/ng-template&gt;
+&lt;/p-table&gt;
 </code></pre>
     </div>
 
@@ -354,7 +524,7 @@ export class SearchComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  search works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><p-table [value]="this.profiles" dataKey="id">  <ng-template pTemplate="header">    <tr>      <th style="width: 3rem"></th>      <th pSortableColumn="name">        Name <p-sortIcon field="name"></p-sortIcon>      </th>      <th pSortableColumn="parentName">        Parent <p-sortIcon field="parentName"></p-sortIcon>      </th>      <th pSortableColumn="parentId">        ParentId <p-sortIcon field="parentId"></p-sortIcon>      </th>      <th pSortableColumn="date">        Date <p-sortIcon field="date"></p-sortIcon>      </th>      <th pSortableColumn="type">        Type <p-sortIcon field="type"></p-sortIcon>      </th>      <th pSortableColumn="details">        Details <p-sortIcon field="details"></p-sortIcon>      </th>      <th pSortableColumn="sum">Total <p-sortIcon field="sum"></p-sortIcon></th>    </tr>  </ng-template>  <ng-template pTemplate="body" let-profile let-expanded="expanded">    <tr>      <td>        <button          [pRowToggler]="profile"          class="btn btn-sm btn-outline-info p-0"          (click)="this.getTotals(profile.parentId)"          style="            width: 30px;            height: 30px;            display: flex;            justify-content: center;            align-items: center;            border-radius: 50%;          "        >          <i class="{{ expanded ? \'fa fa-minus\' : \'fa fa-plus\' }}"></i>        </button>      </td>      <td>{{ profile.name | titlecase }}</td>      <td>{{ profile.parentName | titlecase }}</td>      <td>{{ profile.parentId }}</td>      <td>{{ profile.date | date: "dd/MM/YYYY" }}</td>      <td>{{ profile.type }}</td>      <td>{{ profile.details | titlecase }}</td>      <td>{{ profile.sum | currency: "USD" }}</td>    </tr>  </ng-template>  <ng-template pTemplate="rowexpansion" let-profile>    <tr>      <td colspan="8">        <div class="p-p-3">          <div class="bg-primary p-4 m-3 shadow" style="border-radius: 10px;">            <h4><i class="fa fa-user-o mr-3"></i> {{profile.parentName | titlecase}}</h4>          </div>          <p-table [value]="profile.totals?.totals" dataKey="id">            <ng-template pTemplate="header">              <tr>                <th pSortableColumn="id">                  Id <p-sortIcon field="id"></p-sortIcon>                </th>                <th pSortableColumn="year">                  Year <p-sortIcon field="year"></p-sortIcon>                </th>                <th pSortableColumn="total">                  Total <p-sortIcon field="total"></p-sortIcon>                </th>              </tr>            </ng-template>            <ng-template pTemplate="body" let-total>              <tr>                <td>{{ total?.id }}</td>                <td>{{ total?.year }}</td>                <td>{{ total?.total | currency: "USD" }}</td>              </tr>            </ng-template>            <ng-template pTemplate="emptymessage">              <tr>                <td colspan="6">There are no items to display</td>              </tr>            </ng-template>          </p-table>        </div>      </td>    </tr>  </ng-template></p-table></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchComponent'};

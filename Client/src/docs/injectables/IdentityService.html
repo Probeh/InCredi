@@ -306,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/common/services/identity.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/common/services/identity.service.ts:33</a></div>
                 </td>
             </tr>
 
@@ -378,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/common/services/identity.service.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/common/services/identity.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -388,7 +388,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;Object&gt;</code>
 
                     </div>
                 </td>
@@ -419,8 +419,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/common/services/identity.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/common/services/identity.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -528,7 +528,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;http://localhost:5000/api/auth&#x27;</code>
+                            <i>Default value : </i><code>&#x27;auth&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -607,18 +607,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Subject } from &#x27;rxjs&#x27;
-import { HttpClient } from &#x27;@angular/common/http&#x27;
-import { Injectable } from &#x27;@angular/core&#x27;
-import { Account } from &#x27;@models/account.model&#x27;
-import { Identity } from &#x27;@models/identity.model&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Subject        } from &#x27;rxjs&#x27;
+import { HttpClient     } from &#x27;@angular/common/http&#x27;
+import { Injectable     } from &#x27;@angular/core&#x27;
+import { Account        } from &#x27;@models/account.model&#x27;
+import { Identity       } from &#x27;@models/identity.model&#x27;
 import { MessageService } from &#x27;@services/message.service&#x27;
-import { MessageType } from &#x27;@enums/message.enum&#x27;
-import { Router } from &#x27;@angular/router&#x27;
+import { MessageType    } from &#x27;@enums/message.enum&#x27;
+import { Router         } from &#x27;@angular/router&#x27;
 
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class IdentityService {
-  private readonly baseUrl: string &#x3D; &#x27;http://localhost:5000/api/auth&#x27;;
+  private readonly baseUrl: string &#x3D; &#x27;auth&#x27;;
   // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; //
   public authState: boolean &#x3D; false;
   public identity: Identity;
@@ -628,8 +628,7 @@ export class IdentityService {
     this.identity$.subscribe({
       next: result &#x3D;&gt; {
         this.identity &#x3D; result;
-        this.router.navigate([&#x27;search&#x27;]);
-        console.log(&#x27;AuthState Changed &#x3D;&gt;&#x27;, result);
+        this.router.navigate([result ? &#x27;search&#x27; : &#x27;account&#x27;]);
       }
     });
 
@@ -663,12 +662,13 @@ export class IdentityService {
         return result;
       });
   }
-  public userLogout(): Promise&lt;void&gt; {
-    return this.http
+  public userLogout(): Promise&lt;Object&gt; {
+    var result &#x3D; this.http
       .post(&#x60;${this.baseUrl}/logout&#x60;, null)
-      .toPromise()
-      .then(() &#x3D;&gt; this.message.show(&#x27;Signing Out&#x27;, &#x27;&#x27;, MessageType.Info))
-      .then(() &#x3D;&gt; this.setIdentity());
+      .toPromise();
+    this.setIdentity();
+    this.message.show(&#x27;Signed out!&#x27;, &#x27;&#x27;, MessageType.Warning);
+    return result;
   }
   public setIdentity(identity?: Identity) {
     identity

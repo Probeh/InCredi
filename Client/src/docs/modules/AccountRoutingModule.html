@@ -80,9 +80,9 @@ import { RouterModule     , Routes } from &#x27;@angular/router&#x27;
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;, component: AccountComponent, children: [
-      { path: &#x27;&#x27;, component: LoginComponent },
+      { path: &#x27;login&#x27;   , component: LoginComponent    },
       { path: &#x27;register&#x27;, component: RegisterComponent },
-      { path: &#x27;**&#x27;, pathMatch: &#x27;full&#x27;, redirectTo: &#x27;&#x27; },
+      { path: &#x27;**&#x27;, pathMatch: &#x27;full&#x27;, redirectTo: &#x27;login&#x27; },
     ]
   }
 ];

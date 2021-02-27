@@ -102,7 +102,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/common/services/request.interceptor.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/common/services/request.interceptor.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/common/services/request.interceptor.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">src/common/services/request.interceptor.ts:11</a></div>
                 </td>
             </tr>
 
@@ -237,6 +237,7 @@
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { IdentityService } from &#x27;@services/identity.service&#x27;;
+import { server } from &#x27;@env/environment&#x27;;
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -250,7 +251,7 @@ export class RequestInterceptor implements HttpInterceptor {
         .append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;) :
       req.headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
 
-    const authReq &#x3D; req.clone({ headers });
+    const authReq &#x3D; req.clone({ headers, url: server + &#x27;/&#x27; + req.url });
     return next.handle(authReq);
   }
 }</code></pre>

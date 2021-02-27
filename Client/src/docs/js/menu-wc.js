@@ -55,13 +55,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AccountModule.html" data-type="entity-link">AccountModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AccountModule-019d3b330549cf9a0ff0360e6e7d5ab6"' : 'data-target="#xs-components-links-module-AccountModule-019d3b330549cf9a0ff0360e6e7d5ab6"' }>
+                                            'data-target="#components-links-module-AccountModule-cbd1520767bc6a4c487a28131b94bd62"' : 'data-target="#xs-components-links-module-AccountModule-cbd1520767bc6a4c487a28131b94bd62"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AccountModule-019d3b330549cf9a0ff0360e6e7d5ab6"' :
-                                            'id="xs-components-links-module-AccountModule-019d3b330549cf9a0ff0360e6e7d5ab6"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AccountModule-cbd1520767bc6a4c487a28131b94bd62"' :
+                                            'id="xs-components-links-module-AccountModule-cbd1520767bc6a4c487a28131b94bd62"' }>
                                             <li class="link">
                                                 <a href="components/AccountComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountComponent</a>
@@ -138,13 +138,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SearchModule.html" data-type="entity-link">SearchModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-SearchModule-dc06d9aee7fadd0ea329429657866851"' : 'data-target="#xs-components-links-module-SearchModule-dc06d9aee7fadd0ea329429657866851"' }>
+                                            'data-target="#components-links-module-SearchModule-5000202b6d4650d8a658c8c5e882ce88"' : 'data-target="#xs-components-links-module-SearchModule-5000202b6d4650d8a658c8c5e882ce88"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SearchModule-dc06d9aee7fadd0ea329429657866851"' :
-                                            'id="xs-components-links-module-SearchModule-dc06d9aee7fadd0ea329429657866851"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SearchModule-5000202b6d4650d8a658c8c5e882ce88"' :
+                                            'id="xs-components-links-module-SearchModule-5000202b6d4650d8a658c8c5e882ce88"' }>
                                             <li class="link">
                                                 <a href="components/AccountComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AccountComponent</a>
@@ -206,6 +206,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Profile.html" data-type="entity-link">Profile</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Results.html" data-type="entity-link">Results</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Summary.html" data-type="entity-link">Summary</a>
                             </li>
                         </ul>
                     </li>

@@ -12,8 +12,12 @@
 >
   <h4 class="title m-0"><i class="fa fa-credit-card mr-2"></i>InCredi</h4>
   <div class="action-group">
-    <button class="btn"><i class="fa fa-code"></i><span>Docs</span></button>
-    <button class="btn"><i class="fa fa-github"></i><span>GitHub</span></button>
+    <a href="../../docs/overview.html" target="_blank" class="btn"
+      ><i class="fa fa-code"></i><span>Docs</span></a
+    >
+    <a href="https://github.com/probeh/incredi" target="_blank" class="btn"
+      ><i class="fa fa-github"></i><span>GitHub</span></a
+    >
     <button *ngIf="this.authenticated" class="btn" (click)="this.logout()">
       <i class="fa fa-sign-out"></i><span>Logout</span>
     </button>

@@ -66,13 +66,13 @@
 <title>cluster_AccountModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 623,-268 623,-70 8,-70"/>
 </g>
-<g id="clust7" class="cluster">
-<title>cluster_AccountModule_exports</title>
-<polygon fill="none" stroke="black" points="83,-208 83,-260 517,-260 517,-208 83,-208"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_AccountModule_imports</title>
 <polygon fill="none" stroke="black" points="447,-78 447,-130 615,-130 615,-78 447,-78"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_AccountModule_exports</title>
+<polygon fill="none" stroke="black" points="83,-208 83,-260 517,-260 517,-208 83,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_AccountModule_declarations</title>
@@ -253,14 +253,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AccountComponent     } from &#x27;@account/account.component&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { InputTextModule } from &#x27;primeng/inputtext&#x27;
+import { TabMenuModule } from &#x27;primeng/tabmenu&#x27;
 import { AccountRoutingModule } from &#x27;@account/account-routing.module&#x27;
-import { CommonModule         } from &#x27;@angular/common&#x27;
-import { LoginComponent       } from &#x27;@account/login/login.component&#x27;
-import { NgModule             } from &#x27;@angular/core&#x27;
-import { RegisterComponent    } from &#x27;@account/register/register.component&#x27;
+import { AccountComponent } from &#x27;@account/account.component&#x27;
+import { LoginComponent } from &#x27;@account/login/login.component&#x27;
+import { RegisterComponent } from &#x27;@account/register/register.component&#x27;
+import { CommonModule } from &#x27;@angular/common&#x27;
+import { NgModule } from &#x27;@angular/core&#x27;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;
-import {InputTextModule} from &#x27;primeng/inputtext&#x27;;
 
 const components &#x3D; [AccountComponent, LoginComponent, RegisterComponent];
 
@@ -268,7 +269,9 @@ const components &#x3D; [AccountComponent, LoginComponent, RegisterComponent];
   imports: [
     CommonModule,
     AccountRoutingModule,
-    ReactiveFormsModule
+    InputTextModule,
+    ReactiveFormsModule,
+    TabMenuModule
   ],
   declarations: [components],
   exports: [components]
